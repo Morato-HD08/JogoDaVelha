@@ -1,5 +1,5 @@
 public class Tabuleiro {
-    String[] posicoes = {"-","-","-","-","-","-","-","-","-"} ;
+    private String[] posicoes = {"-","-","-","-","-","-","-","-","-"} ;
 
     public Tabuleiro() {
         this.posicoes= new String[]{"-","-","-","-","-","-","-","-","-"};
@@ -8,9 +8,14 @@ public class Tabuleiro {
     public String getPosicao(int i) {
         return posicoes[i];
     }
-    public void setPosicoes(String valor, int posicao) {
+    public void setPosicao(String valor, int posicao) {
         posicoes[posicao] = valor;
     }
+
+    public String[] getPosicoes() {
+        return posicoes;
+    }
+
     public void exibirTabuleiro(){
         System.out.printf(" %s | %s | %s \n",  posicoes[0], posicoes[1], posicoes[2]);
         System.out.println("---+---+---");

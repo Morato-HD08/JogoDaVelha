@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Partida partida = new Partida();
@@ -5,12 +7,19 @@ public class Main {
         Jogador humano = partida.getJogador1();
         Jogador robo = partida.getJogador2();
 
-        tabuleiro.exibirTabuleiro();
-        humano.realizarJogada(1, tabuleiro);
-        tabuleiro.exibirTabuleiro();
+        int j=0;
+        while (j<tabuleiro.getPosicoes().length){
 
-        robo.realizarJogada(2, tabuleiro);
-        tabuleiro.exibirTabuleiro();
+            tabuleiro.exibirTabuleiro();
+
+            System.out.println("Digite a posição: ");
+            Scanner sc = new Scanner(System.in);
+            int posit = sc.nextInt();
+
+            humano.realizarJogada(posit, tabuleiro);
+            robo.realizarJogada(0, tabuleiro);
+            j++;
+        }
 
     }
     public static void exibirMenuInicial(){

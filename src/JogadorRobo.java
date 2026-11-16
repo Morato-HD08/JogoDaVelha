@@ -5,12 +5,16 @@ public class JogadorRobo extends Jogador{
 
     @Override
     public boolean realizarJogada(int posicao, Tabuleiro tabuleiroAtual) {
-        if(posicao<0 && posicao>8){
-            return false;
-        }
-        if(tabuleiroAtual.getPosicao(posicao).equals("-")){
-            tabuleiroAtual.setPosicoes("O", posicao);
-            return true;
+        jogada(tabuleiroAtual);
+        return false;
+    }
+
+    public boolean jogada(Tabuleiro tabuleiroAtual){
+        for(int i=0; i<tabuleiroAtual.getPosicoes().length; i++){
+            if(tabuleiroAtual.getPosicao(i).equals("-")){
+                tabuleiroAtual.setPosicao("O", i);
+                return true;
+            }
         }
         return false;
     }
