@@ -7,8 +7,7 @@ public class Main {
         Jogador humano = partida.getJogador1();
         Jogador robo = partida.getJogador2();
 
-        int j=0;
-        while (j<tabuleiro.getPosicoes().length){
+        while (!partida.verificarVitoria(tabuleiro)){
 
             tabuleiro.exibirTabuleiro();
 
@@ -18,10 +17,14 @@ public class Main {
 
             humano.realizarJogada(posit, tabuleiro);
             robo.realizarJogada(0, tabuleiro);
-            j++;
-        }
 
+            if(partida.verificarVitoria(tabuleiro)){
+                tabuleiro.exibirTabuleiro();
+                System.out.println("Vitória");
+            }
+        }
     }
+
     public static void exibirMenuInicial(){
         System.out.println("------------MENU INICIAL-----------");
         System.out.println("1- Iniciar Partida");
