@@ -1,7 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        exibirMenuInicial();
-        exibirMenuJogada();
+        Jogador a = new JogadorHumano();
+        Tabuleiro tabuleiroAtual = new Tabuleiro();
+
+        a.realizarJogada(1, tabuleiroAtual);
+        tabuleiroAtual.exibirTabuleiro();
+        a.realizarJogada(2, tabuleiroAtual);
+        tabuleiroAtual.exibirTabuleiro();
     }
     public static void exibirMenuInicial(){
         System.out.println("------------MENU INICIAL-----------");
