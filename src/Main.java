@@ -9,24 +9,44 @@ public class Main {
         int escolha=-2;
         Scanner sc = new Scanner(System.in);
         int voltar;
+        boolean jogada;
 
-        while (!partida.verificarVitoria(tabuleiro) && escolha!=-1){
+        while (escolha!=-1){
+            tabuleiro.limparTabuleiro();
             exibirMenuInicial();
             escolha = sc.nextInt();
             switch(escolha){
                 case 1:
-                    tabuleiro.exibirTabuleiro();
-
-                    System.out.println("Digite a posição desejada: ");
-                    int posit = sc.nextInt();
-
-                    humano.realizarJogada(posit, tabuleiro);
-                    robo.realizarJogada(0, tabuleiro);
-
-                    if(partida.verificarVitoria(tabuleiro)){
+                    do{
                         tabuleiro.exibirTabuleiro();
-                        System.out.println("Vitória");
-                    }
+
+                        System.out.println("Digite a posição desejada: ");
+                        int posit = sc.nextInt();
+
+                        do{
+                            jogada = humano.realizarJogada(posit, tabuleiro);
+                            if(!jogada){
+                                System.out.printf("Posição inválida. Tente novamente: ");
+                                posit = sc.nextInt();
+                            }
+                        }while(!jogada);
+
+                        robo.realizarJogada(0, tabuleiro);
+
+                        if(partida.verificarVitoria(tabuleiro)!=0){
+                            tabuleiro.exibirTabuleiro();
+                            if(partida.verificarVitoria(tabuleiro)==1){
+                                System.out.println("Vitória do jogador!");
+                            }else{
+                                System.out.println("Vitória do robô!");
+                            }
+                            do{
+                                System.out.println("Pressione 1 para voltar ao menu: ");
+                                voltar = sc.nextInt();
+                            }while (voltar!=1);
+                        }
+                    }while (partida.verificarVitoria(tabuleiro)==0);
+
                 break;
                 case 2:
                     System.out.println("------------REGRAS---------");
@@ -40,6 +60,7 @@ public class Main {
                 break;
                 case 0:
                     System.out.println("Saindo...");
+                    escolha=-1;
                 break;
             }
         }
