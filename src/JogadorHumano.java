@@ -8,7 +8,7 @@ public class JogadorHumano extends Jogador {
             return false;
         }
         if(tabuleiroAtual.getPosicao(posicao).equals("-")){
-            tabuleiroAtual.setPosicoes("X", posicao);
+            tabuleiroAtual.setPosicao("X", posicao);
             return true;
         }
         return false;

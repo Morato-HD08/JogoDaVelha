@@ -1,12 +1,26 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Jogador a = new JogadorHumano();
-        Tabuleiro tabuleiroAtual = new Tabuleiro();
+        Partida partida = new Partida();
+        Tabuleiro tabuleiro = partida.getTabuleiro();
+        Jogador humano = partida.getJogador1();
+        Jogador robo = partida.getJogador2();
 
-        a.realizarJogada(1, tabuleiroAtual);
-        tabuleiroAtual.exibirTabuleiro();
-        a.realizarJogada(2, tabuleiroAtual);
-        tabuleiroAtual.exibirTabuleiro();
+        int j=0;
+        while (j<tabuleiro.getPosicoes().length){
+
+            tabuleiro.exibirTabuleiro();
+
+            System.out.println("Digite a posição: ");
+            Scanner sc = new Scanner(System.in);
+            int posit = sc.nextInt();
+
+            humano.realizarJogada(posit, tabuleiro);
+            robo.realizarJogada(0, tabuleiro);
+            j++;
+        }
+
     }
     public static void exibirMenuInicial(){
         System.out.println("------------MENU INICIAL-----------");
