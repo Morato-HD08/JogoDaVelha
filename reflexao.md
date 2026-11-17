@@ -1,0 +1,2 @@
+# Reflexão
+- Com o curso de extensão consegui entender melhor sobre o funcionamento do git e a implementação do GitHub em projetos. Anteriormente utilizei as tecnologias sem experiência e hoje percebo a diferença de saber utilizar as ferramentas. Foi de grande significância o conhecimento do curso de extensão e acredito poder utilizá-lo bem.
